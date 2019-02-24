@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NameeditorComponent } from './nameeditor.component';
+import { ErrorlinkComponent } from './errorlink.component';
 
-describe('NameeditorComponent', () => {
-  let component: NameeditorComponent;
-  let fixture: ComponentFixture<NameeditorComponent>;
+describe('ErrorlinkComponent', () => {
+  let component: ErrorlinkComponent;
+  let fixture: ComponentFixture<ErrorlinkComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NameeditorComponent ]
+      declarations: [ ErrorlinkComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NameeditorComponent);
+    fixture = TestBed.createComponent(ErrorlinkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

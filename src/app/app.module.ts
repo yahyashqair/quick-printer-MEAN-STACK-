@@ -10,8 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModule } from 'ngx-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NameeditorComponent } from './components/nameeditor/nameeditor.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ErrorlinkComponent } from './components/errorlink/errorlink.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
     AboutComponent,
     RegComponent,
     HomeComponent,
-    NameeditorComponent
+    ErrorlinkComponent
   ],
   imports: [
     BrowserModule,
