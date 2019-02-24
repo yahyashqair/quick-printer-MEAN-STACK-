@@ -8,7 +8,6 @@ import { AboutComponent } from './components/about/about.component';
 import { RegComponent } from './components/reg/reg.component';
 import { HomeComponent } from './components/home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { AlertModule } from 'ngx-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ErrorlinkComponent } from './components/errorlink/errorlink.component';
@@ -25,7 +24,7 @@ import { ErrorlinkComponent } from './components/errorlink/errorlink.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,NgbModule,AlertModule.forRoot(),ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,NgbModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

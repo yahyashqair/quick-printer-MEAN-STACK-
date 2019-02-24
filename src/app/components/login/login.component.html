@@ -1,28 +1,19 @@
-<!-- <label>
-  Name:
-  <input type="text" [formControl]="name">
-  <h1>value = {{name.value}}</h1>
-  <p>
-    <button (click)="updateName()">Update Name</button>
-  </p>
-</label> -->
-<div class="ma">
-  <Form [formGroup]="LoginForm" *ngIf="!submited" (ngSubmit)="onSubmit()">
-  <div class="container center-block col-md-6 input">
-      <div class="form-group">
-        <label>Email</label>
-        <input [class.is-invalid]="LoginForm.get('email').invalid && LoginForm.get('email').touched " formControlName="email" type="text" class="form-control">
-        <small  style="color:brown" [class.d-none]="LoginForm.get('email').valid || LoginForm.get('email').untouched">Email is required</small>
-      </div>
-
-      <div class="form-group">
-        <label>Password</label>
-        <input  [class.is-invalid]="LoginForm.get('password').invalid && LoginForm.get('password').touched "formControlName="password" type="password" class="form-control">
+<div class="login-form">
+    <form [formGroup]="LoginForm" *ngIf="!submited" (ngSubmit)="onSubmit()">
+        <div class="avatar">
+			<img src="/assets/avatar.png" alt="Avatar">
+		</div>
+        <h2 class="text-center">Member Login</h2>   
+        <div class="form-group">
+          <input  placeholder="Email" [class.is-invalid]="LoginForm.get('email').invalid && LoginForm.get('email').touched " formControlName="email" type="text" class="form-control">
+          <small  style="color:brown" [class.d-none]="LoginForm.get('email').valid || LoginForm.get('email').untouched">Email is required</small>  
+        </div>
+		<div class="form-group">
+        <input  placeholder="Password" [class.is-invalid]="LoginForm.get('password').invalid && LoginForm.get('password').touched "formControlName="password" type="password" class="form-control">
         <small  style="color:brown" [class.d-none]="LoginForm.get('password').valid || LoginForm.get('password').untouched">Password is required</small>
-
-      </div>
-      <button type="submit" class="btn btn-primary">Log In</button>
-  </div>
-</Form>
-<!-- {{LoginForm.value | json}} -->
+        </div>        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+        </div>
+    </form>
 </div>
