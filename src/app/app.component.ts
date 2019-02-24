@@ -8,8 +8,4 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AppComponent {
   title = 'my-app';
-  LoginForm=new FormGroup({
-    email : new FormControl('Yshqair@asaltech.com'),
-    password : new FormControl("")
-  });
 }

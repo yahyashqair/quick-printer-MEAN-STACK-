@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
-export class RegService {
+export class LoginService {
   _url='http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
-  reg(userData){
+  login(userData){
     return this.http.post<any>(this._url,userData);
   }
+
 }
