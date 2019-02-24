@@ -11,7 +11,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ErrorlinkComponent } from './components/errorlink/errorlink.component';
-
+import {
+  ToastrModule,
+  ToastNoAnimation,
+  ToastNoAnimationModule
+} from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,9 @@ import { ErrorlinkComponent } from './components/errorlink/errorlink.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,NgbModule,ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,NgbModule,ReactiveFormsModule
+    ,HttpClientModule,ToastNoAnimationModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,10 +13,10 @@ export class RegComponent implements OnInit {
   constructor(private fb : FormBuilder,private regservice : RegService){}
 
   regForm =this.fb.group({
-    email:['', Validators.required ],
+    email:['', [Validators.required,Validators.email]],
     username:['', Validators.required ],
     idnumber:['', Validators.required ],
-    password:['', Validators.required]
+    password:['', [Validators.required,Validators.minLength(6)]]
   }) ; 
 
   ngOnInit() {
