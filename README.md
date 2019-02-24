@@ -1,4 +1,4 @@
-# MyApp
+# Quick Printer
 Done : 
 1- Create project , 
 2- make a bootstrap navbar  
