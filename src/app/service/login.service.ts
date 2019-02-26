@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-  _url='http://localhost:3000/';
+  _url='http://localhost:3000/login';
   constructor(private http: HttpClient) { }
 
   login(userData){
