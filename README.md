@@ -1,7 +1,7 @@
 # Quick Printer
 Done : 
 
-24/2
+# 24/2
 ->
     1- Create project , 
     2- make a bootstrap navbar  
@@ -11,8 +11,9 @@ Done :
     6- make a simple node js server 
     7- make a http request and send the data of forms to server 
 
-26/2 
 
+
+# 26/2 
     *-Learn basic nodejs/express and mongodb
 -> 
     1- Setup express Server using Starter Kit . 
