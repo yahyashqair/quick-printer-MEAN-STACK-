@@ -9,7 +9,6 @@ import { RegService } from 'src/app/service/reg.service';
 })
 export class RegComponent implements OnInit {
   submited:boolean = false ;
-
   constructor(private fb : FormBuilder,private regservice : RegService){}
 
   regForm =this.fb.group({
@@ -21,13 +20,41 @@ export class RegComponent implements OnInit {
 
   ngOnInit() {
   }
+  list:String ="...";
+  Check:Object={"msg":'no'};
+  name:String =" "; 
 
+
+  listing(){
+   this.regservice.list() .subscribe(
+    response => {this.list=response ;},
+    error => console.error('Error!', error));
+  }
   onSubmit(){
     // console.log(this.regForm.value);
     this.regservice.reg(this.regForm.value)
     .subscribe(
-      response => {console.log('Success!', response) ;this.submited=true},
+      response => {console.log('Success!', response) ;this.Check=response;  if(response['msg']=="yes"){
+        this.submited=true;
+        this.name=response['details'].username;
+        console.log("done1");
+      }
+    },
       error => console.error('Error!', error)
-);  }
+); 
+      this.listing();
+      this.success();
+}
+
+success(){
+  if(this.Check['msg']=="yes"){
+    this.submited=true;
+    this.name=this.Check['details'].username;
+    console.log("done1");
+  }
+  console.log("done2");
+
+}
+
 
 }

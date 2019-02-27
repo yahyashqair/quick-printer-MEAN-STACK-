@@ -1,5 +1,5 @@
   <div class="login-form">
-      <form [formGroup]="regForm" (ngSubmit)="onSubmit()"  *ngIf="!submited">
+      <form [formGroup]="regForm" (ngSubmit)="onSubmit()" *ngIf="!submited"  >
           <div class="avatar">
         <img src="/assets/avatar.png" alt="Avatar">
       </div>
@@ -22,8 +22,9 @@
           </div>    
 
           <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-lg btn-block">Registration</button>
+              <button type="submit" [disabled]="regForm.get('password').invalid ||regForm.get('email').invalid ||regForm.get('idnumber').invalid||regForm.get('username').invalid " class="btn btn-primary btn-lg btn-block">Registration</button>
           </div>
       </form>
+      <h1 *ngIf="submited"> Welcome {{name}}, Your Registration is Completed . </h1>
   </div>
-  
+  <!-- <h1>all Users is :{{list|json}}</h1> -->

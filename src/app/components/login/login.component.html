@@ -14,7 +14,6 @@
         </div>        
         <div class="form-group">
             <button type="submit" (click)=[showSuccess()]  [disabled]="LoginForm.get('password').invalid ||LoginForm.get('email').invalid " class="btn btn-primary btn-lg btn-block">Sign in</button>
-
         </div>
     </form>
     <button type="button" (click)=[showSuccess()]   class="btn btn-primary btn-lg btn-block">Sign in</button>

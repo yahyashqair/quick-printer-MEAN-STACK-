@@ -22,25 +22,6 @@ User.find({username: req.params.id},
 });
 });
 
-// Add users to the database 
-// Just For Learn until now .
-router.post('/', function(req, res){
-  var personInfo = req.body; //Get the parsed information
-     var newPerson = new User({
-        email: personInfo.email,
-        password: personInfo.password,
-        idbzu: personInfo.idnumber,
-        username:personInfo.username
-     });
-     newPerson.save(function(err, Person){
-        if(err)
-        res.send({"error": personInfo});
-        else
-        res.send({"Yeees": personInfo});
-     });
-  console.log("yahyapost");
-});
-
 
 router.post('/login', function(req, res) {
   console.log(req.body)
