@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validator, Validators } from '@angular/forms';
 import { RegService } from 'src/app/service/reg.service';
-
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-reg',
   templateUrl: './reg.component.html',
@@ -9,7 +9,7 @@ import { RegService } from 'src/app/service/reg.service';
 })
 export class RegComponent implements OnInit {
   submited:boolean = false ;
-  constructor(private fb : FormBuilder,private regservice : RegService){}
+  constructor(private fb : FormBuilder,private regservice : RegService,private router:Router){}
 
   regForm =this.fb.group({
     email:['', [Validators.required,Validators.email]],
@@ -38,6 +38,8 @@ export class RegComponent implements OnInit {
         this.submited=true;
         console.log("done1");
       }
+      localStorage.setItem('token',response.token);
+      this.router.navigate(['users']);
     },
       error => console.error('Error!', error)
 ); 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validator, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/service/login.service';
 import { ToastrService } from 'ngx-toastr';
+import {Router} from '@angular/router'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   submited: boolean = false;
 
-  constructor(private fb: FormBuilder, private loginservice: LoginService, private toastr: ToastrService) { }
+  constructor(private fb: FormBuilder, private loginservice: LoginService, private toastr: ToastrService,private router:Router) { }
 
   LoginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -25,7 +27,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.loginservice.login(this.LoginForm.value)
       .subscribe(
-        response => { this.name = response[0]['username'] ;console.log('Success!', response); this.submited = true },
+        response => { console.log('Success!', response); this.submited = true;
+        localStorage.setItem('token',response.token);
+        this.router.navigate(['users']);
+      },
         error => console.error('Error!', error)
       );
   }

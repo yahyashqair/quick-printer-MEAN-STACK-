@@ -15,6 +15,9 @@
         <li class="nav-item" [routerLinkActive]="['active']">
           <a class="nav-link" [routerLink]="['/']" (click)="navbarCollapsed = true">Home</a>
         </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" [routerLink]="['/users']" (click)="navbarCollapsed = true">Users</a>
+          </li>
       </ul>
       <a class="nav-link" [routerLink]="['login']" (click)="navbarCollapsed = true">Log In</a>
       <a class="nav-link" [routerLink]="['reg']" (click)="navbarCollapsed = true">Registration</a>

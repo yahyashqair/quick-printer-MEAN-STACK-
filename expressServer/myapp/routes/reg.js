@@ -9,12 +9,6 @@ const jwt = require('jsonwebtoken');
 // Just For Learn until now .
 
 // Return All Users in database 
-router.get('/', function(req, res){
-   User.find({}, 
-      function(err, response){
-         res.send({response});
-      });
-   });
       
 // Insert User
 router.post('/', function(req, res){

@@ -10,12 +10,16 @@ import { HomeComponent } from './components/home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {AuthGuard} from './auth.guard';
+
 import { ErrorlinkComponent } from './components/errorlink/errorlink.component';
 import {
   ToastrModule,
   ToastNoAnimation,
   ToastNoAnimationModule
 } from 'ngx-toastr';
+import { NewRequestService } from './service/new-request.service';
+import { UsersComponent } from './components/users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,8 @@ import {
     AboutComponent,
     RegComponent,
     HomeComponent,
-    ErrorlinkComponent
+    ErrorlinkComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,7 @@ import {
     ,HttpClientModule,ToastNoAnimationModule.forRoot(),
     
   ],
-  providers: [],
+  providers: [NewRequestService ,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

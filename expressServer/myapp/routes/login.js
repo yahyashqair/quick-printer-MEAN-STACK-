@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 // Get Instance from database Connection
 var User = require('../database/data');
+const jwt = require('jsonwebtoken');
 
 
 // Add users to the database 
@@ -19,7 +20,9 @@ var User = require('../database/data');
              }else if (response[0].password!=req.body.password){
               res.status(401).send('invalid Password');
              }else{
-              res.status(200).send(response);
+              let payload = { subject : response[0].email} ; 
+              let token = jwt.sign(payload,'key'); 
+              res.status(200).send({response,token});
              }
            }
           console.log(response);
