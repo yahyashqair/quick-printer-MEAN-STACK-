@@ -2,15 +2,32 @@
 // Connection With User Collection 
 // DataBase Import and Connection
 
+
+
+
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/printerbase');
+mongoose.connect('mongodb://localhost/printerbase',err =>{
+if(err){
+  console.log("error Connect");
+}else{
+  console.log("Connected");
+}
+});
 
 var userschema = mongoose.Schema({
-  username: String,
-  email: String,
-  idbzu: String,
-  password: Number
+  username: {type:String,    unique: true,
+    required: true
+       },
+       email: {type:String,    unique: true,
+        required: true
+           },
+           idbzu: {type:Number,    unique: true,
+            required: true
+               },
+               password: {type:String,
+                required: true
+                   }
 });
-var User = mongoose.model("User", userschema);
+var User = mongoose.model("Users", userschema);
 //
 module.exports = User;

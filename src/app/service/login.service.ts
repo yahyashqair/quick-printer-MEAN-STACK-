@@ -11,5 +11,4 @@ export class LoginService {
   login(userData){
     return this.http.post<any>(this._url,userData);
   }
-
 }

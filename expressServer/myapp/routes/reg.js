@@ -2,19 +2,21 @@ var express = require('express');
 var router = express.Router();
 // Get Instance from database Connection
 var User = require('../database/data');
+const jwt = require('jsonwebtoken');
 
 
 // Add users to the database 
 // Just For Learn until now .
 
+// Return All Users in database 
 router.get('/', function(req, res){
    User.find({}, 
       function(err, response){
-         res.send({"data": response});
+         res.send({response});
       });
    });
       
-
+// Insert User
 router.post('/', function(req, res){
     var personInfo = req.body; //Get the parsed information
        var newPerson = new User({
@@ -28,10 +30,11 @@ router.post('/', function(req, res){
           res.send({"msg":'no'});         console.log("NO");
          }
           else{
-          res.send({"msg":"yes","details": personInfo});
+             let payload = { subject : Person.username} ; 
+             let token = jwt.sign(payload,'key');
+          res.send({"msg":"yes",token});
          console.log("yes");
          }
        });
-    console.log("yahyapost");
   });
   module.exports = router;

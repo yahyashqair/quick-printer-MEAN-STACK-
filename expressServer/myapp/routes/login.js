@@ -7,12 +7,20 @@ var User = require('../database/data');
 // Add users to the database 
 // Just For Learn until now .
   router.post('/', function(req, res){
-    User.find({username: req.body}, 
+    User.find({email: req.body.email}, 
        function(err, response){
            if(err){
             res.send({"error": "no"});
            }else{
-            res.send({"yes": "welcome","data":response.body.username});
+            //  console.log(req.body.password);
+            //  console.log(response[0].password);
+             if(!response[0]){
+               res.status(401).send('invalid Email');
+             }else if (response[0].password!=req.body.password){
+              res.status(401).send('invalid Password');
+             }else{
+              res.status(200).send(response);
+             }
            }
           console.log(response);
           console.log(response.length);

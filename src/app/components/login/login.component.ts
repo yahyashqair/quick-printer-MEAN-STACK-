@@ -20,10 +20,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  name:String ="";
+
   onSubmit() {
     this.loginservice.login(this.LoginForm.value)
       .subscribe(
-        response => { console.log('Success!', response); this.submited = true },
+        response => { this.name = response[0]['username'] ;console.log('Success!', response); this.submited = true },
         error => console.error('Error!', error)
       );
   }

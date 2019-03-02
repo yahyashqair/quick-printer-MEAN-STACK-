@@ -2,7 +2,7 @@
 <div class="container" style="padding-left: 0; padding-right: 0;">
   <header class="navbar navbar-light navbar-fixed-top navbar-expand-lg">
 
-    <a class="navbar-brand" [routerLink]="['/']" (click)="navbarCollapsed = true">Quick Printer</a>
+    <a class="navbar-brand" [routerLink]="['/']" (click)="navbarCollapsed = false">Quick Printer</a>
 
     <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
       [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false"
@@ -19,6 +19,7 @@
       <a class="nav-link" [routerLink]="['login']" (click)="navbarCollapsed = true">Log In</a>
       <a class="nav-link" [routerLink]="['reg']" (click)="navbarCollapsed = true">Registration</a>
 
+      
     </div>
   </header>
 </div>

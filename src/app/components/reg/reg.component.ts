@@ -27,7 +27,7 @@ export class RegComponent implements OnInit {
 
   listing(){
    this.regservice.list() .subscribe(
-    response => {this.list=response ;},
+    response => {this.list=JSON.parse(response) ;},
     error => console.error('Error!', error));
   }
   onSubmit(){
@@ -36,7 +36,6 @@ export class RegComponent implements OnInit {
     .subscribe(
       response => {console.log('Success!', response) ;this.Check=response;  if(response['msg']=="yes"){
         this.submited=true;
-        this.name=response['details'].username;
         console.log("done1");
       }
     },
@@ -49,7 +48,6 @@ export class RegComponent implements OnInit {
 success(){
   if(this.Check['msg']=="yes"){
     this.submited=true;
-    this.name=this.Check['details'].username;
     console.log("done1");
   }
   console.log("done2");

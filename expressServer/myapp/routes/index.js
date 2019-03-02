@@ -23,10 +23,5 @@ User.find({username: req.params.id},
 });
 
 
-router.post('/login', function(req, res) {
-  console.log(req.body)
-  res.send({"message": "Data received"});
-});
-
 
 module.exports = router;
