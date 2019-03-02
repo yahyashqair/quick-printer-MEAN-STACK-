@@ -21,3 +21,11 @@ Done :
     3- Connect with database .
     4- insert user and serch for users <<< JUST FOR TRAIN >>> .
     5- make some request from POSTMAN . 
+    
+# 3/6/2019 
+->
+    1- make a users Component show all user details store in MongoDatabase 
+    2- Setup jsonwebtoken in backend to make and sent the token to client side
+    3- save the token in localstorge client side 
+    4- make auth service and auth guard implements CanActivate , to check if user logged in .
+    5- make a navigate to log in if we want to open users page without log in . 
