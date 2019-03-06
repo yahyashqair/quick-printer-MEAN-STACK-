@@ -39,7 +39,7 @@ export class RegComponent implements OnInit {
         console.log("done1");
       }
       localStorage.setItem('token',response.token);
-      this.router.navigate(['users']);
+      this.router.navigate(['']);
     },
       error => console.error('Error!', error)
 ); 

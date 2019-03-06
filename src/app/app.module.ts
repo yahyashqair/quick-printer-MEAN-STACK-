@@ -9,17 +9,17 @@ import { RegComponent } from './components/reg/reg.component';
 import { HomeComponent } from './components/home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule,HttpInterceptor, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthGuard} from './auth.guard';
 
 import { ErrorlinkComponent } from './components/errorlink/errorlink.component';
-import {
-  ToastrModule,
-  ToastNoAnimation,
-  ToastNoAnimationModule
-} from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 import { NewRequestService } from './service/new-request.service';
 import { UsersComponent } from './components/users/users.component';
+import { TokenInterceptorService } from './service/token-interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,10 +34,10 @@ import { UsersComponent } from './components/users/users.component';
   imports: [
     BrowserModule,
     AppRoutingModule,NgbModule,ReactiveFormsModule
-    ,HttpClientModule,ToastNoAnimationModule.forRoot(),
-    
+    ,HttpClientModule,    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
-  providers: [NewRequestService ,AuthGuard],
+  providers: [NewRequestService ,AuthGuard,{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

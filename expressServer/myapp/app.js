@@ -9,11 +9,13 @@ var regRouter = require('./routes/reg');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var bodyParser = require('body-parser');
+// const passport = require("passport");
+// require("./passport/passport");
+
 var app = express();
-
-
-
 app.use(cors());
+// app.use(passport.initialize());  
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -27,8 +29,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/reg', regRouter);
 app.use('/login', loginRouter);
+// app.use('/users', passport.authenticate('jwt', {session: false}),usersRouter);
 app.use('/users', usersRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -7,8 +7,6 @@ const jwt = require('jsonwebtoken');
 
 // Add users to the database 
 // Just For Learn until now .
-
-// Return All Users in database 
       
 // Insert User
 router.post('/', function(req, res){

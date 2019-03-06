@@ -1,27 +1,18 @@
 var express = require('express');
 var router = express.Router();
 // Get Instance from database Connection
+// const passport = require('passport');
 var User = require('../database/data');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-  console.log("yahyaget");
-});
 
 
-
-
-// Basic Function to find users with special username
-// Just For Learn until now .
-router.get('/users/:id', function(req, res){
-User.find({username: req.params.id}, 
-   function(err, response){
-      console.log(response);
-      console.log(response.length);
-});
-});
-
+// router.post('/signup', passport.authenticate('signup', { session : false }) , async (req, res, next) => {
+//   res.json({ 
+//     message : 'Signup successful',
+//     user : req.user 
+//   });
+// });
 
 
 module.exports = router;

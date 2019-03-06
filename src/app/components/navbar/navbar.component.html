@@ -19,8 +19,9 @@
             <a class="nav-link" [routerLink]="['/users']" (click)="navbarCollapsed = true">Users</a>
           </li>
       </ul>
-      <a class="nav-link" [routerLink]="['login']" (click)="navbarCollapsed = true">Log In</a>
-      <a class="nav-link" [routerLink]="['reg']" (click)="navbarCollapsed = true">Registration</a>
+      <a class="nav-link" *ngIf="!auth.loggedIn()" [routerLink]="['login']" (click)="navbarCollapsed = true">Log In</a>
+      <a class="nav-link" *ngIf="!auth.loggedIn()" [routerLink]="['reg']" (click)="navbarCollapsed = true">Registration</a>
+      <a class="nav-link" style="cursor:pointer"  (click)="auth.loggedOut()"  *ngIf="auth.loggedIn()" [routerLink]="['reg']" (click)="navbarCollapsed = true">Log Out</a>
 
       
     </div>
